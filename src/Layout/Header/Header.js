@@ -1,11 +1,11 @@
-import { useContext } from 'react';
+// import { useContext } from 'react';
 import { useUserContext } from '../../context/UserContext';
 import { signOut } from '../../services/auth';
 
 export default function Header() {
   // const [isActive, setIsActive] = useState(false);
 
-  const { setUser } = useContext(useUserContext);
+  const { user, setUser } = useUserContext();
 
   const handleLogout = async () => {
     try {
@@ -18,7 +18,7 @@ export default function Header() {
 
   return (
     <nav>
-      <div>hello</div>
+      {/* <div>hello {user.email}</div> */}
       <button className="LObutton" onClick={handleLogout}>
         Sign Out
       </button>
