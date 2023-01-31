@@ -12,11 +12,11 @@ function App() {
   const { user } = useUserContext();
 
   return (
-    <div className="toplevel">
+    <div className="top-level">
       <Header />
       <br></br>
       <Switch>
-        <Route path="/auth" component={Auth} />
+        <Route path="/auth/:type" component={Auth} />
         <Route path="/items" component={Items} />
         <Route exact path="/" component={Main}>
           <>
@@ -26,7 +26,6 @@ function App() {
         </Route>
       </Switch>
 
-      <Items />
       <br></br>
       <Footer />
     </div>

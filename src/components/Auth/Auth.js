@@ -12,6 +12,7 @@ export default function Auth() {
   if (user) {
     return <Redirect to="/items" />;
   }
+
   const submitAuth = async () => {
     try {
       const newUser = await authUser(email, password, type);
@@ -27,6 +28,7 @@ export default function Auth() {
       <NavLink className="to sign in" to="/auth/sign-in">
         Sign In
       </NavLink>
+      <br></br>
       <NavLink className="to sign in" to="/auth/sign-up">
         Sign up
       </NavLink>
