@@ -11,7 +11,7 @@ const UserProvider = ({ children }) => {
   return <UserContext.Provider value={{ user, setUser }}>{children}</UserContext.Provider>;
 };
 /////////////////////////////////
-const useUser = () => {
+const useUserContext = () => {
   const data = useContext(UserContext);
 
   if (!data) {
@@ -20,5 +20,5 @@ const useUser = () => {
   return data;
 };
 
-export { UserProvider, useUser };
+export { UserProvider, useUserContext };
 /////////////////////////////////
