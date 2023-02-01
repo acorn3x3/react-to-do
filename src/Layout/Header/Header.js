@@ -18,8 +18,8 @@ export default function Header() {
 
   return (
     <nav>
-      {/* <div>hello {user.email}</div> */}
-      <button className="LObutton" onClick={handleLogout}>
+      <div>hello </div>
+      <button className="LO-button" onClick={handleLogout}>
         Sign Out
       </button>
     </nav>

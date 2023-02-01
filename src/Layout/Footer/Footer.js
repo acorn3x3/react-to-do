@@ -1,3 +1,3 @@
 export default function Footer() {
-  return <div>hello im a Footer div!</div>;
+  return <div>by Andrew Cornejo</div>;
 }
