@@ -19,7 +19,7 @@ export default function ItemsList() {
       {items.map((item) => (
         <div key={item.id}>
           <label className="checkbox">
-            <input onChange={() => handleChange(item)} checked={item.complete} />
+            <input onChange={() => handleChange(item)} checked={item.complete} type="checkbox" />
             {item.name} {item.complete}
           </label>
         </div>
