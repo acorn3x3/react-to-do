@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import Auth from './components/Auth/Auth';
+import Header from './Layout/Header/Header';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import Items from './components/Items/Items';
+import Footer from './Layout/Footer/Footer';
+import Main from './Layout/Main/Main';
+// import { useContext } from 'react';
+import { useUserContext } from './context/UserContext';
 
 function App() {
+  const { user } = useUserContext();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="top-level">
+      <Header />
+      <br></br>
+      <Switch>
+        <Route path="/auth" component={Auth} />
+        <Route path="/items" component={Items} />
+        <Route exact path="/" component={Main}>
+          <>
+            {user && <Redirect to="/items" />}
+            {!user && <Redirect to="/auth/sign-in" />}
+          </>
+        </Route>
+      </Switch>
+
+      <br></br>
+      <Footer />
     </div>
   );
 }
