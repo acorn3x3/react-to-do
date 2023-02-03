@@ -15,24 +15,31 @@ export default function ItemsList() {
     }
   };
   const handleDeleteItem = async (item) => {
-    console.log(item);
     try {
+      // eslint-disable-next-line no-unused-vars
       const deletedItem = await deleteItem(item);
       setItems((prevItems) => prevItems.filter((prevItem) => prevItem.id !== item));
     } catch (e) {
       console.error(e.message);
     }
   };
-  console.log(items);
+
   return (
-    <div className="handle-box">
-      {items.map((item) => (
-        <div key={item.id}>
-          {item.name} {item.complete}
-          <input onChange={() => handleChange(item)} checked={item.complete} type="checkbox" />
-          <button onClick={() => handleDeleteItem(item.id)}>🚮</button>
-        </div>
-      ))}
-    </div>
+    <h1>
+      TO DOS!
+      <div className="handle-box">
+        {items.map((item) => (
+          <div key={item.id}>
+            {item.name} {item.complete}
+            <input
+              onChange={() => handleChange(item)}
+              checked={item.complete}
+              type="checkbox"
+            ></input>
+            <button onClick={() => handleDeleteItem(item.id)}>🚮DELETE</button>
+          </div>
+        ))}
+      </div>
+    </h1>
   );
 }
