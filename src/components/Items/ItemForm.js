@@ -10,7 +10,7 @@ export default function ItemForm() {
   const handleNewItem = async () => {
     try {
       const item = await createItem(name, complete);
-      setItems((prev) => [...prev, item]);
+      setItems((prev) => [...prev, item.data]);
       setName('');
       setComplete(true);
     } catch (e) {
